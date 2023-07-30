@@ -1,0 +1,34 @@
+<div class="container ">
+  <h2 class="text-center">E-Books</h2>
+
+  <div *ngIf="ebooks.length > 0">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th colspan="2" class="text-center">Nome do Livro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ebook of ebooks">
+          <td>{{ ebook }}</td>
+          <td>
+            <a [href]="getDownloadLink(ebook)" target="_blank" download>
+              <img src="../../../assets/images/icons8-dowload-64.png" width="25">
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="ebooks.length === 0">
+    <p>No E-Books found.</p>
+  </div>
+
+<!--
+  <pdf-viewer
+    [src]="pdfUrl"
+    [render-text]="true"
+    [original-size]="false"
+    style="width: 1200px;height: 600px"
+  ></pdf-viewer> -->
+</div>
